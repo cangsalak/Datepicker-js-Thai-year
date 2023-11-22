@@ -54,7 +54,7 @@ Date Picker เปลี่ยนจากปี ค.ศ เป็น พ.ศ.
             var selectedDate = this.get('select', 'dd-mm-yyyy'); // รับวันที่เลือก
             var parts = selectedDate.split('-'); // แยกส่วนวันที่
             var buddhistYear = parseInt(parts[2]) + 543; // แปลงเป็น พ.ศ. (เนื่องจากค่าใน input จะยังเป็น ค.ศ. จึงต้องแปลงอีกรอบ)
-            var formattedDate = parts[0] + '-' + parts[1] + '-' + buddhistYear; // จัดวันที่ใหม่
+            var formattedDate = buddhistYear + '-' + parts[1] + '-' + parts[0]; // จัดวันที่ใหม่ในรูปแบบที่ MySQL รองรับ
             this.$node.val(formattedDate); // อัปเดตค่าอินพุต
         }
     });
